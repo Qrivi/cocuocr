@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/Qrivi/cocuocr#readme",
   "dependencies": {
+    "axios": "^0.19.1",
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
@@ -40,7 +41,13 @@
     "@babel/register": "^7.8.3",
     "@babel/runtime": "^7.8.3",
     "babel-loader": "^8.0.6",
+    "husky": "^4.0.10",
     "nodemon": "^2.0.2",
     "standardx": "^5.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm audit"
+    }
   }
 }

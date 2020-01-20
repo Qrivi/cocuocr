@@ -1,13 +1,8 @@
+import Ocr from '../utils/Ocr'
+import Constants from '../constants'
+
 export default class MenuService {
-    static async getCurrent() {
-        try {
-            return await new Promise(function (resolve, reject) {
-                setTimeout(function () {
-                    resolve('whaddup broski');
-                }, 300);
-            });
-        } catch (error) {
-            throw error;
-        }
-    }
+  static async getCurrent () {
+    return Ocr.readMenu([Constants.MONDAY_SOUP_BOX, Constants.TUESDAY_SOUP_BOX])
+  }
 }
