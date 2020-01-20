@@ -22,18 +22,18 @@ npm install && npm run dev
 ### Run app for production
 
 #### With Docker
-- Build the Docker image:
+- Build the cocuapi Docker image:
 ```
 npm run docker:build
 ```
-- Run the MongoDB and app images:
+- Run the MongoDB and cocuapi app images:
 ```
 docker-compose up
 ```
 
 #### Without Docker
-- Run the start script:
+- Install dependencies and run the start script:
 ```
-npm run start
+npm install && npm run start
 ```
-Make sure MongoDB is running. You can set connection details in a `.env` file.
+Make sure MongoDB is running. Configure connection details in a `.env` file.
