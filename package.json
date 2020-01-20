@@ -9,6 +9,7 @@
     "lint": "standard \"src/**/*.js\"",
     "clean": "rm -rf ./out",
     "build": "babel -d ./out ./src -s",
+    "docker:build": "docker build -t qrivi/cocuapi .",
     "start": "npm run clean && npm run build && node ./out/index.js"
   },
   "repository": {

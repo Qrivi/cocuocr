@@ -1,12 +1,13 @@
 import config from 'dotenv'
 import express from 'express'
 import bodyParser from 'body-parser'
+
 import menuRoute from './routes/MenuRoute'
 
 config.config()
 
 const app = express()
-const port = process.env.PORT || 8050
+const port = process.env.PORT || 8080
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))

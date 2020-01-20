@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  cocudb:
+    container_name: cocudb
+    image: 'mongo:4.2.2'
+    ports:
+      - '27017:27017'
+    command: 'mongod'
+
+  cocuapi:
+    container_name: cocuapi
+    image: 'qrivi/cocuapi:latest'
+    restart: always
+    ports:
+      - '8050:8080'
+    depends_on:
+      - cocudb
