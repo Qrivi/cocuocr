@@ -1,0 +1,46 @@
+{
+  "name": "cocuocr",
+  "version": "1.0.0",
+  "description": "OCR to read the Corda Cuisine menu",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec babel-node ./src/index.js",
+    "test": "echo \"Error: ain't nobody got time for that\" && exit 1",
+    "lint": "standard \"src/**/*.js\"",
+    "clean": "rm -rf ./out",
+    "build": "babel -d ./out ./src -s",
+    "start": "npm run clean && npm run build && node ./out/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Qrivi/cocuocr.git"
+  },
+  "keywords": [
+    "potatoes"
+  ],
+  "author": "Kristof Dewilde <git@krivi.be>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Qrivi/cocuocr/issues"
+  },
+  "homepage": "https://github.com/Qrivi/cocuocr#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "path": "^0.12.7",
+    "tesseract.js": "^2.0.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/node": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/register": "^7.8.3",
+    "@babel/runtime": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "nodemon": "^2.0.2",
+    "standardx": "^5.0.0"
+  }
+}
