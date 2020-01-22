@@ -12,7 +12,7 @@ example.env
 out/
 
 # Tesseract.js
-.traineddata
+*.traineddata
 
 # .env
 .env
