@@ -23,4 +23,4 @@ app.listen(port, () => {
   Logger.log(`[app] Server is running on port ${port}`)
 })
 
-export default app
+// export default app

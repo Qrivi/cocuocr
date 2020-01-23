@@ -1,7 +1,8 @@
 export default class Constants {
-  static get TESSERACT_WORKERS () {
-    // Specifies how many workers to create for Tesseract.js to parse one day. More is faster (but also heavier?).
-    return 5
+  // This file should not be edited (often): tweakable defaults can be set in a .env file.
+
+  static get DEFAULT_TESSERACT_WORKERS () {
+    return 5 // Amount of Tesseract.js process an image. More is faster (but also heavier?).
   }
 
   static get CORDA_MENU_HOMEPAGE () {
@@ -13,43 +14,43 @@ export default class Constants {
   }
 
   static get MENU_OFFSET () {
-    return 470 // Horizontal offset from the left to the first column
+    return 470 // Horizontal offset from the left to the first column.
   }
 
   static get DATE_OFFSET () {
-    return 175 // Vertical offset from the top to the row with the dates
+    return 175 // Vertical offset from the top to the row with the dates.
   }
 
   static get SOUP_OFFSET () {
-    return 345 // Vertical offset from the top to the soup row
+    return 345 // Vertical offset from the top to the soup row.
   }
 
   static get DISH_OFFSET () {
-    return 700 // Vertical offset from the top to the dishes row
+    return 700 // Vertical offset from the top to the dishes row.
   }
 
   static get RECT_WIDTH () {
-    return 405 // The width of a column on the menu
+    return 405 // The width of a column on the menu.
   }
 
   static get DATE_HEIGHT () {
-    return 55 // Height of a rectangle containing the date
+    return 55 // Height of a rectangle containing the date.
   }
 
   static get SOUP_HEIGHT () {
-    return 100 // Height of a rectangle containing a soup
+    return 100 // Height of a rectangle containing a soup.
   }
 
   static get DISH_HEIGHT () {
-    return 137 // Height of a rectangle containing a dish
+    return 137 // Height of a rectangle containing a dish.
   }
 
   static get RECURRING_SOUP_HEIGHT () {
-    return 88 // Height of a rectangle containing a recurring soup
+    return 88 // Height of a rectangle containing a recurring soup.
   }
 
   static get RECT_MARGIN () {
-    return 10 // Extra space around the "standard" rectangle to search for text
+    return -5 // Extra space around the "standard" rectangle to search for text.
   }
 
   static get RECURRING_DATA () {

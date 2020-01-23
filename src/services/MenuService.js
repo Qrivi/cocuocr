@@ -1,8 +1,8 @@
 import Axios from 'axios'
-import Ocr from '../utils/Ocr'
 import Constants from '../constants'
+import OcrService from './OcrService'
 
-const ocr = new Ocr()
+const ocrService = new OcrService()
 
 export default class MenuService {
   static async getCurrent () {
@@ -17,17 +17,17 @@ export default class MenuService {
       throw new Error('The Corda Cuisine website appears to be offline')
     }
 
-    await ocr.init(menu)
+    await ocrService.init(menu)
 
     const results = {
-      monday: await ocr.read(Constants.MONDAY_DATA, 'Monday'),
-      tuesday: await ocr.read(Constants.TUESDAY_DATA, 'Tuesday'),
-      wednesday: await ocr.read(Constants.WEDNESDAY_DATA, 'Wednesday'),
-      thursday: await ocr.read(Constants.THURSDAY_DATA, 'Thursday'),
-      friday: await ocr.read(Constants.FRIDAY_DATA, 'Friday')
+      monday: await ocrService.read(Constants.MONDAY_DATA),
+      tuesday: await ocrService.read(Constants.TUESDAY_DATA),
+      wednesday: await ocrService.read(Constants.WEDNESDAY_DATA),
+      thursday: await ocrService.read(Constants.THURSDAY_DATA),
+      friday: await ocrService.read(Constants.FRIDAY_DATA)
     }
 
-    ocr.kill()
+    ocrService.kill()
 
     return results
   }
