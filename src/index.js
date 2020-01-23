@@ -3,6 +3,7 @@ import express from 'express'
 import bodyParser from 'body-parser'
 
 import menuRoute from './routes/MenuRoute'
+import Logger from './utils/Logger'
 
 config.config()
 
@@ -19,7 +20,7 @@ app.get('*', (req, res) => res.status(200).send({
 }))
 
 app.listen(port, () => {
-  console.log(`Server is running on localhost:${port}`)
+  Logger.log(`[app] Server is running on port ${port}`)
 })
 
 export default app

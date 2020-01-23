@@ -1,11 +1,9 @@
 {
-    "extends": "airbnb-base",
     "rules": {
-        "no-console": 0,
-        "prefer-destructuring": 0,
-        "treatUndefinedAsUnspecified": true,
-        "arrow-body-style": 0,
-        "comma-dangle": 0
+        "no-console": 1,
+        "prefer-destructuring": 1,
+        "arrow-body-style": 1,
+        "comma-dangle": 2
     },
     "env": {
         "commonjs": true,

@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon --exec babel-node ./src/index.js",
     "test": "echo \"Error: ain't nobody got time for that\" && exit 1",
-    "lint": "standard \"src/**/*.js\"",
+    "lint": "standardx",
     "clean": "rm -rf ./out",
     "build": "babel -d ./out ./src -s",
     "docker:build": "docker build -t qrivi/cocuapi .",
@@ -41,7 +41,8 @@
     "@babel/preset-env": "^7.8.3",
     "@babel/register": "^7.8.3",
     "@babel/runtime": "^7.8.3",
-    "babel-loader": "^8.0.6",
+    "eslint": "^6.8.0",
+    "eslint-plugin-import": "^2.20.0",
     "husky": "^4.0.10",
     "nodemon": "^2.0.2",
     "standardx": "^5.0.0"
