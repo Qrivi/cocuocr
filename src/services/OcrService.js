@@ -9,7 +9,7 @@ export default class OcrService {
     this.scheduler = createScheduler()
 
     this.activeWorkers = 0
-    this.totalWorkers = (process.env.TESSERACT_WORKERS ? parseInt(process.env.TESSERACT_WORKERS) : Constants.DEFAULT_TESSERACT_WORKERS)
+    this.totalWorkers = parseInt(process.env.TESSERACT_WORKERS) || Constants.DEFAULT_TESSERACT_WORKERS
 
     // Asynchronously create and run workers
     const workers = []

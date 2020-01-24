@@ -13,4 +13,14 @@ export default class MenuController {
       return r.badRequest(res, `${error.name}: ${error.message}`)
     }
   }
+
+  static async testRepo (req, res) {
+    const r = new JsonResponse()
+    try {
+      const test = await MenuService.testRepository()
+      return r.send(res, 200, { test })
+    } catch (error) {
+      return r.badRequest(res, `${error.name}: ${error.message}`)
+    }
+  }
 }

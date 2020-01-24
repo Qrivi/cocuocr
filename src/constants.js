@@ -1,6 +1,14 @@
 export default class Constants {
   // This file should not be edited (often): tweakable defaults can be set in a .env file.
 
+  static get DEFAULT_PORT () {
+    return 8080
+  }
+
+  static get DEFAULT_MONGO_URL () {
+    return 'mongodb://localhost:27017/cocudb'
+  }
+
   static get DEFAULT_TESSERACT_WORKERS () {
     return 5 // Amount of Tesseract.js process an image. More is faster (but also heavier?).
   }
@@ -102,7 +110,7 @@ export default class Constants {
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
         height: this.DISH_HEIGHT + this.RECT_MARGIN * 2
       },
-      other: {
+      wpp: {
         top: this.DISH_OFFSET - this.RECT_MARGIN + this.DISH_HEIGHT * 2,
         left: this.MENU_OFFSET - this.RECT_MARGIN,
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
@@ -137,7 +145,7 @@ export default class Constants {
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
         height: this.DISH_HEIGHT + this.RECT_MARGIN * 2
       },
-      other: {
+      wpp: {
         top: this.DISH_OFFSET - this.RECT_MARGIN + this.DISH_HEIGHT * 2,
         left: this.MENU_OFFSET - this.RECT_MARGIN + this.RECT_WIDTH,
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
@@ -172,7 +180,7 @@ export default class Constants {
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
         height: this.DISH_HEIGHT + this.RECT_MARGIN * 2
       },
-      other: {
+      wpp: {
         top: this.DISH_OFFSET - this.RECT_MARGIN + this.DISH_HEIGHT * 2,
         left: this.MENU_OFFSET - this.RECT_MARGIN + this.RECT_WIDTH * 2,
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
@@ -207,7 +215,7 @@ export default class Constants {
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
         height: this.DISH_HEIGHT + this.RECT_MARGIN * 2
       },
-      other: {
+      wpp: {
         top: this.DISH_OFFSET - this.RECT_MARGIN + this.DISH_HEIGHT * 2,
         left: this.MENU_OFFSET - this.RECT_MARGIN + this.RECT_WIDTH * 3,
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
@@ -242,7 +250,7 @@ export default class Constants {
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
         height: this.DISH_HEIGHT + this.RECT_MARGIN * 2
       },
-      other: {
+      wpp: {
         top: this.DISH_OFFSET - this.RECT_MARGIN + this.DISH_HEIGHT * 2,
         left: this.MENU_OFFSET - this.RECT_MARGIN + this.RECT_WIDTH * 4,
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,

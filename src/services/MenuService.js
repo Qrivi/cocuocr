@@ -1,4 +1,5 @@
 import Axios from 'axios'
+import dayRepository from '../domain/repositories/DayRepository'
 import Constants from '../constants'
 import OcrService from './OcrService'
 
@@ -30,5 +31,17 @@ export default class MenuService {
     ocrService.kill()
 
     return results
+  }
+
+  static async testRepository () {
+    const testDay = {
+      date: new Date(),
+      soup: 'lekkere soep',
+      main: 'friet met frietjes',
+      vegetarian: 'beetje gras',
+      wpp: 'ronde pizza'
+    }
+
+    return dayRepository.create(testDay)
   }
 }
