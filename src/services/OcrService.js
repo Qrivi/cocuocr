@@ -1,3 +1,4 @@
+import fs from 'fs'
 import { createWorker, createScheduler } from 'tesseract.js'
 import Constants from '../constants'
 import Logger from '../utils/Logger'
@@ -30,6 +31,8 @@ export default class OcrService {
 
   async kill () {
     Logger.log('[ocr] Silently killing the Tesseract scheduler...')
+    fs.unlinkSync('./nld.traineddata')
+    // Removing the traineddata should not be necessary but for some yet unknown reason Tesseract.js errors out on 2nd or 3rd run if we keep it.
     this.activeWorkers = 0
     return this.scheduler.terminate()
   }

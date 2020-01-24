@@ -11,6 +11,9 @@ export const schema = new mongoose.Schema({
     },
     image: {
       type: String
+    },
+    fetched: {
+      type: Date
     }
   },
   monday: {

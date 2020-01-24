@@ -2,10 +2,12 @@ import Axios from 'axios'
 import dayRepository from '../domain/repositories/DayRepository'
 import Constants from '../constants'
 import OcrService from './OcrService'
+import Logger from '../utils/Logger'
 
 const ocrService = new OcrService()
 
 export default class MenuService {
+  // Test method below
   static async getCurrent () {
     let menu
 
@@ -20,19 +22,20 @@ export default class MenuService {
 
     await ocrService.init(menu)
 
-    const results = {
-      monday: await ocrService.read(Constants.MONDAY_DATA),
-      tuesday: await ocrService.read(Constants.TUESDAY_DATA),
-      wednesday: await ocrService.read(Constants.WEDNESDAY_DATA),
-      thursday: await ocrService.read(Constants.THURSDAY_DATA),
-      friday: await ocrService.read(Constants.FRIDAY_DATA)
-    }
+    const results = await Promise.all([
+      ocrService.read(Constants.MONDAY_DATA),
+      ocrService.read(Constants.TUESDAY_DATA),
+      ocrService.read(Constants.WEDNESDAY_DATA),
+      ocrService.read(Constants.THURSDAY_DATA),
+      ocrService.read(Constants.FRIDAY_DATA)
+    ])
 
-    ocrService.kill()
+    await ocrService.kill()
 
     return results
   }
 
+  // Test method below
   static async testRepository () {
     const testDay = {
       date: new Date(),
@@ -43,5 +46,9 @@ export default class MenuService {
     }
 
     return dayRepository.create(testDay)
+  }
+
+  static async fetchMenuPersistently () {
+    Logger.log('This bad boy is not yet implemented')
   }
 }

@@ -9,8 +9,12 @@ export default class Constants {
     return 'mongodb://localhost:27017/cocudb'
   }
 
+  static get DEFAULT_CRON_SCHEDULE () {
+    return '0 7 * * 1' // When the app should check the Corda Cuisine website for a menu update.
+  }
+
   static get DEFAULT_TESSERACT_WORKERS () {
-    return 5 // Amount of Tesseract.js process an image. More is faster (but also heavier?).
+    return 5 // Amount of Tesseract.js process an image. More is faster (but also heavier? 5 seems to be the sweet spot).
   }
 
   static get CORDA_MENU_HOMEPAGE () {

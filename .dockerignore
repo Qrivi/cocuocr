@@ -1,5 +1,5 @@
 # Not required for building
-development
+data
 Dockerfile
 .git
 .gitignore

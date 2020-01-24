@@ -7,7 +7,7 @@
     "dev": "nodemon --exec babel-node ./src/index.js",
     "test": "echo \"Error: ain't nobody got time for that\" && exit 1",
     "lint": "standardx",
-    "clean": "rm -rf ./out",
+    "clean": "rm -rf ./out ./*.traineddata",
     "build": "babel -d ./out ./src -s",
     "docker:build": "docker build -t qrivi/cocuapi .",
     "start": "npm run clean && npm run build && node ./out/index.js"

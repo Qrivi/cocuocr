@@ -14,4 +14,8 @@ export default class Tools {
       .replace(/\n/gm, ', ') // Replace new lines
       .trim() // Trim again
   }
+
+  static sleep (ms) {
+    return new Promise(resolve => setTimeout(resolve, ms))
+  }
 }
