@@ -20,7 +20,7 @@
     "potatoes"
   ],
   "author": "Kristof Dewilde <git@krivi.be>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Qrivi/cocuocr/issues"
   },
