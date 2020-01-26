@@ -1,9 +1,9 @@
 {
     "rules": {
-        "no-console": 1,
-        "prefer-destructuring": 1,
-        "arrow-body-style": 1,
-        "comma-dangle": 2
+        "no-console": "error",
+        "prefer-destructuring": "error",
+        "arrow-body-style": "error",
+        "comma-dangle": ["error", "always-multiline"]
     },
     "env": {
         "commonjs": true,

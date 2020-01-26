@@ -4,44 +4,47 @@ import { schema as Day } from './Day'
 export const schema = new mongoose.Schema({
   data: {
     week: {
-      type: Number
+      type: Number,
     },
     year: {
-      type: Number
+      type: Number,
     },
     image: {
-      type: String
+      type: String,
+    },
+    url: {
+      type: String,
     },
     fetched: {
-      type: Date
-    }
+      type: Date,
+    },
   },
   monday: {
-    type: Day
+    type: Day,
   },
   tuesday: {
-    type: Day
+    type: Day,
   },
   wednesday: {
-    type: Day
+    type: Day,
   },
   thursday: {
-    type: Day
+    type: Day,
   },
   friday: {
-    type: Day
+    type: Day,
   },
   recurring: {
     tomatoSoup: {
-      type: String
+      type: String,
     },
     vegetarianSoup: {
-      type: String
+      type: String,
     },
     bigBoySoup: {
-      type: String
-    }
-  }
+      type: String,
+    },
+  },
 })
 
 export const Week = mongoose.model('Week', schema)

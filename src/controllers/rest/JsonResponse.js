@@ -5,13 +5,13 @@ export default class JsonResponse {
 
   badRequest (res, message) {
     return this.send(res, 500, {
-      error: message || 'Something was not properly programmed and broke.'
+      error: message || 'Something was not properly programmed and broke.',
     })
   }
 
   notFound (res, subject) {
     return this.send(res, 404, {
-      error: `${subject || 'The requested object'} does not exist.`
+      error: `${subject || 'The requested object'} does not exist.`,
     })
   }
 
@@ -20,7 +20,7 @@ export default class JsonResponse {
       .json({
         statusCode,
         executionTimeInMs: new Date().getTime() - this.creationDate.getTime(),
-        ...data
+        ...data,
       })
   }
 }

@@ -2,20 +2,20 @@ import mongoose from 'mongoose'
 
 export const schema = new mongoose.Schema({
   date: {
-    type: Date
+    type: Date,
   },
   soup: {
-    type: String
+    type: String,
   },
   main: {
-    type: String
+    type: String,
   },
   vegetarian: {
-    type: String
+    type: String,
   },
   wpp: {
-    type: String
-  }
+    type: String,
+  },
 })
 
 export const Day = mongoose.model('Day', schema)

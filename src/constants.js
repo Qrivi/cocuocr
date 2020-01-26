@@ -75,20 +75,20 @@ export default class Constants {
         top: this.SOUP_OFFSET + this.SOUP_HEIGHT - this.RECT_MARGIN,
         left: this.MENU_OFFSET,
         width: this.RECT_WIDTH * 5,
-        height: this.RECURRING_SOUP_HEIGHT + this.RECT_MARGIN * 2
+        height: this.RECURRING_SOUP_HEIGHT + this.RECT_MARGIN * 2,
       },
       vegetarianSoup: {
         top: this.SOUP_OFFSET + this.SOUP_HEIGHT - this.RECT_MARGIN + this.RECURRING_SOUP_HEIGHT,
         left: this.MENU_OFFSET,
         width: this.RECT_WIDTH * 5,
-        height: this.RECURRING_SOUP_HEIGHT + this.RECT_MARGIN * 2
+        height: this.RECURRING_SOUP_HEIGHT + this.RECT_MARGIN * 2,
       },
       bigBoySoup: {
         top: this.SOUP_OFFSET + this.SOUP_HEIGHT - this.RECT_MARGIN + this.RECURRING_SOUP_HEIGHT * 2,
         left: this.MENU_OFFSET,
         width: this.RECT_WIDTH * 5,
-        height: this.RECURRING_SOUP_HEIGHT + this.RECT_MARGIN * 2
-      }
+        height: this.RECURRING_SOUP_HEIGHT + this.RECT_MARGIN * 2,
+      },
     }
   }
 
@@ -98,32 +98,32 @@ export default class Constants {
         top: this.DATE_OFFSET - this.RECT_MARGIN,
         left: this.MENU_OFFSET - this.RECT_MARGIN,
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
-        height: this.DATE_HEIGHT + this.RECT_MARGIN * 2
+        height: this.DATE_HEIGHT + this.RECT_MARGIN * 2,
       },
       soup: {
         top: this.SOUP_OFFSET - this.RECT_MARGIN,
         left: this.MENU_OFFSET - this.RECT_MARGIN,
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
-        height: this.SOUP_HEIGHT + this.RECT_MARGIN * 2
+        height: this.SOUP_HEIGHT + this.RECT_MARGIN * 2,
       },
       main: {
         top: this.DISH_OFFSET - this.RECT_MARGIN,
         left: this.MENU_OFFSET - this.RECT_MARGIN,
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
-        height: this.DISH_HEIGHT + this.RECT_MARGIN * 2
+        height: this.DISH_HEIGHT + this.RECT_MARGIN * 2,
       },
       vegetarian: {
         top: this.DISH_OFFSET - this.RECT_MARGIN + this.DISH_HEIGHT,
         left: this.MENU_OFFSET - this.RECT_MARGIN,
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
-        height: this.DISH_HEIGHT + this.RECT_MARGIN * 2
+        height: this.DISH_HEIGHT + this.RECT_MARGIN * 2,
       },
       wpp: {
         top: this.DISH_OFFSET - this.RECT_MARGIN + this.DISH_HEIGHT * 2,
         left: this.MENU_OFFSET - this.RECT_MARGIN,
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
-        height: this.DISH_HEIGHT + this.RECT_MARGIN * 2
-      }
+        height: this.DISH_HEIGHT + this.RECT_MARGIN * 2,
+      },
     }
   }
 
@@ -133,32 +133,32 @@ export default class Constants {
         top: this.DATE_OFFSET - this.RECT_MARGIN,
         left: this.MENU_OFFSET - this.RECT_MARGIN + this.RECT_WIDTH,
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
-        height: this.DATE_HEIGHT + this.RECT_MARGIN * 2
+        height: this.DATE_HEIGHT + this.RECT_MARGIN * 2,
       },
       soup: {
         top: this.SOUP_OFFSET - this.RECT_MARGIN,
         left: this.MENU_OFFSET - this.RECT_MARGIN + this.RECT_WIDTH,
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
-        height: this.SOUP_HEIGHT + this.RECT_MARGIN * 2
+        height: this.SOUP_HEIGHT + this.RECT_MARGIN * 2,
       },
       main: {
         top: this.DISH_OFFSET - this.RECT_MARGIN,
         left: this.MENU_OFFSET - this.RECT_MARGIN + this.RECT_WIDTH,
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
-        height: this.DISH_HEIGHT + this.RECT_MARGIN * 2
+        height: this.DISH_HEIGHT + this.RECT_MARGIN * 2,
       },
       vegetarian: {
         top: this.DISH_OFFSET - this.RECT_MARGIN + this.DISH_HEIGHT,
         left: this.MENU_OFFSET - this.RECT_MARGIN + this.RECT_WIDTH,
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
-        height: this.DISH_HEIGHT + this.RECT_MARGIN * 2
+        height: this.DISH_HEIGHT + this.RECT_MARGIN * 2,
       },
       wpp: {
         top: this.DISH_OFFSET - this.RECT_MARGIN + this.DISH_HEIGHT * 2,
         left: this.MENU_OFFSET - this.RECT_MARGIN + this.RECT_WIDTH,
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
-        height: this.DISH_HEIGHT + this.RECT_MARGIN * 2
-      }
+        height: this.DISH_HEIGHT + this.RECT_MARGIN * 2,
+      },
     }
   }
 
@@ -168,32 +168,32 @@ export default class Constants {
         top: this.DATE_OFFSET - this.RECT_MARGIN,
         left: this.MENU_OFFSET - this.RECT_MARGIN + this.RECT_WIDTH * 2,
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
-        height: this.DATE_HEIGHT + this.RECT_MARGIN * 2
+        height: this.DATE_HEIGHT + this.RECT_MARGIN * 2,
       },
       soup: {
         top: this.SOUP_OFFSET - this.RECT_MARGIN,
         left: this.MENU_OFFSET - this.RECT_MARGIN + this.RECT_WIDTH * 2,
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
-        height: this.SOUP_HEIGHT + this.RECT_MARGIN * 2
+        height: this.SOUP_HEIGHT + this.RECT_MARGIN * 2,
       },
       main: {
         top: this.DISH_OFFSET - this.RECT_MARGIN,
         left: this.MENU_OFFSET - this.RECT_MARGIN + this.RECT_WIDTH * 2,
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
-        height: this.DISH_HEIGHT + this.RECT_MARGIN * 2
+        height: this.DISH_HEIGHT + this.RECT_MARGIN * 2,
       },
       vegetarian: {
         top: this.DISH_OFFSET - this.RECT_MARGIN + this.DISH_HEIGHT,
         left: this.MENU_OFFSET - this.RECT_MARGIN + this.RECT_WIDTH * 2,
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
-        height: this.DISH_HEIGHT + this.RECT_MARGIN * 2
+        height: this.DISH_HEIGHT + this.RECT_MARGIN * 2,
       },
       wpp: {
         top: this.DISH_OFFSET - this.RECT_MARGIN + this.DISH_HEIGHT * 2,
         left: this.MENU_OFFSET - this.RECT_MARGIN + this.RECT_WIDTH * 2,
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
-        height: this.DISH_HEIGHT + this.RECT_MARGIN * 2
-      }
+        height: this.DISH_HEIGHT + this.RECT_MARGIN * 2,
+      },
     }
   }
 
@@ -203,32 +203,32 @@ export default class Constants {
         top: this.DATE_OFFSET - this.RECT_MARGIN,
         left: this.MENU_OFFSET - this.RECT_MARGIN + this.RECT_WIDTH * 3,
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
-        height: this.DATE_HEIGHT + this.RECT_MARGIN * 2
+        height: this.DATE_HEIGHT + this.RECT_MARGIN * 2,
       },
       soup: {
         top: this.SOUP_OFFSET - this.RECT_MARGIN,
         left: this.MENU_OFFSET - this.RECT_MARGIN + this.RECT_WIDTH * 3,
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
-        height: this.SOUP_HEIGHT + this.RECT_MARGIN * 2
+        height: this.SOUP_HEIGHT + this.RECT_MARGIN * 2,
       },
       main: {
         top: this.DISH_OFFSET - this.RECT_MARGIN,
         left: this.MENU_OFFSET - this.RECT_MARGIN + this.RECT_WIDTH * 3,
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
-        height: this.DISH_HEIGHT + this.RECT_MARGIN * 2
+        height: this.DISH_HEIGHT + this.RECT_MARGIN * 2,
       },
       vegetarian: {
         top: this.DISH_OFFSET - this.RECT_MARGIN + this.DISH_HEIGHT,
         left: this.MENU_OFFSET - this.RECT_MARGIN + this.RECT_WIDTH * 3,
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
-        height: this.DISH_HEIGHT + this.RECT_MARGIN * 2
+        height: this.DISH_HEIGHT + this.RECT_MARGIN * 2,
       },
       wpp: {
         top: this.DISH_OFFSET - this.RECT_MARGIN + this.DISH_HEIGHT * 2,
         left: this.MENU_OFFSET - this.RECT_MARGIN + this.RECT_WIDTH * 3,
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
-        height: this.DISH_HEIGHT + this.RECT_MARGIN * 2
-      }
+        height: this.DISH_HEIGHT + this.RECT_MARGIN * 2,
+      },
     }
   }
 
@@ -238,32 +238,32 @@ export default class Constants {
         top: this.DATE_OFFSET - this.RECT_MARGIN,
         left: this.MENU_OFFSET - this.RECT_MARGIN + this.RECT_WIDTH * 4,
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
-        height: this.DATE_HEIGHT + this.RECT_MARGIN * 2
+        height: this.DATE_HEIGHT + this.RECT_MARGIN * 2,
       },
       soup: {
         top: this.SOUP_OFFSET - this.RECT_MARGIN,
         left: this.MENU_OFFSET - this.RECT_MARGIN + this.RECT_WIDTH * 4,
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
-        height: this.SOUP_HEIGHT + this.RECT_MARGIN * 2
+        height: this.SOUP_HEIGHT + this.RECT_MARGIN * 2,
       },
       main: {
         top: this.DISH_OFFSET - this.RECT_MARGIN,
         left: this.MENU_OFFSET - this.RECT_MARGIN + this.RECT_WIDTH * 4,
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
-        height: this.DISH_HEIGHT + this.RECT_MARGIN * 2
+        height: this.DISH_HEIGHT + this.RECT_MARGIN * 2,
       },
       vegetarian: {
         top: this.DISH_OFFSET - this.RECT_MARGIN + this.DISH_HEIGHT,
         left: this.MENU_OFFSET - this.RECT_MARGIN + this.RECT_WIDTH * 4,
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
-        height: this.DISH_HEIGHT + this.RECT_MARGIN * 2
+        height: this.DISH_HEIGHT + this.RECT_MARGIN * 2,
       },
       wpp: {
         top: this.DISH_OFFSET - this.RECT_MARGIN + this.DISH_HEIGHT * 2,
         left: this.MENU_OFFSET - this.RECT_MARGIN + this.RECT_WIDTH * 4,
         width: this.RECT_WIDTH + this.RECT_MARGIN * 2,
-        height: this.DISH_HEIGHT + this.RECT_MARGIN * 2
-      }
+        height: this.DISH_HEIGHT + this.RECT_MARGIN * 2,
+      },
     }
   }
 }
