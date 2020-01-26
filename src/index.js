@@ -27,17 +27,17 @@ app.get('*', (req, res) => res.status(200).send({
 
 mongoose.connect(mongo, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
-    Logger.log(`[app] Connected to MongoDB at ${mongo}`)
+    Logger.log('app', `Connected to MongoDB at ${mongo}`)
     app.listen(port, () => {
-      Logger.log(`[app] Server is running on port ${port}`)
+      Logger.log('app', `Server is running on port ${port}`)
     })
   }).catch(() => {
-    Logger.error(`[app] Failed to connect to MongoDB at ${mongo}`)
+    Logger.error('app', `Failed to connect to MongoDB at ${mongo}`)
   })
 
 try {
   new CronJob(schedule, MenuService.fetchMenuPersistently).start()
-  Logger.log(`[app] Menu fetch crontab scheduled to run every ${schedule}`)
+  Logger.log('app', `Menu fetch crontab scheduled to run every ${schedule}`)
 } catch (error) {
-  Logger.error(`[app] Failed to start cron scheduler (${error})`)
+  Logger.error('app', `Failed to start cron scheduler (${error})`)
 }

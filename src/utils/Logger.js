@@ -1,19 +1,23 @@
 import chalk from 'chalk'
 
 export default class Logger {
-  static async log (message, keepOpen) {
-    return process.stdout.write(`${message}${keepOpen ? ' ' : '\n'}`)
+  static timestamp () {
+    return new Date().toLocaleString('en-gb')
   }
 
-  static async warning (message, keepOpen) {
-    return process.stdout.write(chalk.yellow(`${message}${keepOpen ? ' ' : '\n'}`))
+  static async log (tag, message, keepOpen) {
+    return process.stdout.write(`${this.timestamp()}  [${tag}]  ${message}${keepOpen ? ' ' : '\n'}`)
   }
 
-  static async error (message, keepOpen) {
-    return process.stdout.write(chalk.red(`${message}${keepOpen ? ' ' : '\n'}`))
+  static async warning (tag, message, keepOpen) {
+    return process.stdout.write(chalk.yellow(`${this.timestamp()}  [${tag}]  ${message}${keepOpen ? ' ' : '\n'}`))
   }
 
-  static async success (message, keepOpen) {
-    return process.stdout.write(chalk.green(`${message}${keepOpen ? ' ' : '\n'}`))
+  static async error (tag, message, keepOpen) {
+    return process.stdout.write(chalk.red(`${this.timestamp()}  [${tag}]  ${message}${keepOpen ? ' ' : '\n'}`))
+  }
+
+  static async success (tag, message, keepOpen) {
+    return process.stdout.write(chalk.green(`${this.timestamp()}  [${tag}]  ${message}${keepOpen ? ' ' : '\n'}`))
   }
 }

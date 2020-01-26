@@ -49,6 +49,6 @@ export default class MenuService {
   }
 
   static async fetchMenuPersistently () {
-    Logger.log('This bad boy is not yet implemented')
+    Logger.log('tmp', 'This bad boy is not yet implemented')
   }
 }
