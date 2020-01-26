@@ -9,8 +9,12 @@ export default class Constants {
     return 'mongodb://localhost:27017/cocudb'
   }
 
-  static get DEFAULT_CRON_SCHEDULE () {
-    return '0 7 * * 1' // When the app should check the Corda Cuisine website for a menu update.
+  static get DEFAULT_FETCH_SCHEDULE () {
+    return '30 5 * * 1' // Crontab of when the app should check the Corda Cuisine website for a menu update.
+  }
+
+  static get DEFAULT_FETCH_TIMEOUT () {
+    return 30 * 60 // In seconds how long to wait before rechecking if the latest menu has been put online.
   }
 
   static get DEFAULT_TESSERACT_WORKERS () {

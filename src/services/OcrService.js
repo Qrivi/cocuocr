@@ -26,11 +26,11 @@ export default class OcrService {
     for (const [name, rectangle] of Object.entries(column)) {
       jobs.push(async () => this.prepareJob(name, rectangle))
     }
-    return Tools.flatten(await Promise.all(jobs.map(j => j())))
+    return Promise.all(jobs.map(j => j()))
   }
 
   async kill () {
-    Logger.log('ocr', 'Silently killing the Tesseract scheduler...')
+    Logger.log('OcrService', 'Silently killing the Tesseract scheduler…')
     fs.unlinkSync('./nld.traineddata')
     // Removing the traineddata should not be necessary but for some yet unknown reason Tesseract.js errors out on 2nd or 3rd run if we keep it.
     this.activeWorkers = 0
@@ -40,18 +40,18 @@ export default class OcrService {
   async prepareWorker () {
     const worker = createWorker()
     const currentWorker = ++this.activeWorkers
-    Logger.log('ocr', `Asynchronously creating Tesseract worker ${currentWorker} of ${this.totalWorkers}...`)
+    Logger.log('OcrService', `Asynchronously creating Tesseract worker ${currentWorker} of ${this.totalWorkers}…`)
     await worker.load()
     await worker.loadLanguage('nld')
     await worker.initialize('nld')
     this.scheduler.addWorker(worker)
-    Logger.success('ocr', `Created Tesseract worker ${currentWorker} of ${this.totalWorkers}!`)
+    Logger.success('OcrService', `Created Tesseract worker ${currentWorker} of ${this.totalWorkers}!`)
   }
 
   async prepareJob (name, rectangle) {
-    Logger.log('ocr', `Asynchronously recognizing text in ${JSON.stringify(rectangle)} (${name})...`)
+    Logger.log('OcrService', `Asynchronously recognizing text in ${JSON.stringify(rectangle)} (${name})…`)
     const text = await this.scheduler.addJob('recognize', this.menu, { rectangle }).then(r => Tools.format(r.data.text))
-    Logger.success('ocr', `Found out that "${name}" is "${text}"!`)
+    Logger.success('OcrService', `Found out that "${name}" is "${text}"!`)
     const result = {}
     result[name] = text
     return result

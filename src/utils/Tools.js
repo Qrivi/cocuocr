@@ -19,11 +19,13 @@ export default class Tools {
       .replace(/, op/gmi, ' op')
       .replace(/, naar/gmi, ' naar')
       .replace(/, volgens/gmi, ' volgens')
-      .replace(/, Provencale/gm, ' Provencale')
+      .replace(/, Provencale/gm, ' Provençale')
+      .replace(/eggy-/gm, 'eggie')
+      .replace(/erwije/gmi, 'erwtje')
       .trim() // Trim again
   }
 
-  static sleep (ms) {
-    return new Promise(resolve => setTimeout(resolve, ms))
+  static sleep (s) {
+    return new Promise(resolve => setTimeout(resolve, s * 1000))
   }
 }

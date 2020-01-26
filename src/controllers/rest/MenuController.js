@@ -14,10 +14,10 @@ export default class MenuController {
     }
   }
 
-  static async testRepo (req, res) {
+  static async testSomething (req, res) {
     const r = new JsonResponse()
     try {
-      const test = await MenuService.testRepository()
+      const test = await MenuService.fetchMenuPersistently()
       return r.send(res, 200, { test })
     } catch (error) {
       return r.badRequest(res, `${error.name}: ${error.message}`)
