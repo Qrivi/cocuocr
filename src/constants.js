@@ -42,7 +42,7 @@ export default class Constants {
   }
 
   static get RECT_WIDTH () {
-    return 405 // The width of a column on the menu.
+    return 405 + 15 // The width of a column on the menu.
   }
 
   static get DATE_HEIGHT () {

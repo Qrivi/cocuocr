@@ -12,6 +12,14 @@ export default class Tools {
     return readText.trim() // Trim whitespace
       .replace(/[`‘|\\]/gm, '') // Remove classic misidentified pixels
       .replace(/\n/gm, ', ') // Replace new lines
+      .replace(/,\s*,/gm, ',') // Remove empty parts
+      .replace(/v\/d/gmi, 'van de') // Write "van de" in full
+      .replace(/, met/gmi, ' met')
+      .replace(/, van/gmi, ' van')
+      .replace(/, op/gmi, ' op')
+      .replace(/, naar/gmi, ' naar')
+      .replace(/, volgens/gmi, ' volgens')
+      .replace(/, Provencale/gm, ' Provencale')
       .trim() // Trim again
   }
 
