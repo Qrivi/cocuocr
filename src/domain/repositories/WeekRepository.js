@@ -1,12 +1,29 @@
-import Week from '../models/Week'
+import { Week } from '../models/Week'
 
 class WeekRepository {
   constructor (model) {
     this.model = model
   }
 
-  create (object) {
-    return this.model.create(object)
+  create (week) {
+    return this.model.create(week)
+  }
+
+  findAll () {
+    return this.model.find()
+  }
+
+  find (week) {
+    return this.model.find(week)
+  }
+
+  findWithDays (week) {
+    return this.model.findById(week)
+      .populate('monday')
+      .populate('tuesday')
+      .populate('wednesday')
+      .populate('thursday')
+      .populate('friday')
   }
 }
 

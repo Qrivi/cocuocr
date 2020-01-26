@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-export const schema = new mongoose.Schema({
+export const DaySchema = new mongoose.Schema({
   date: {
     type: Date,
   },
@@ -18,4 +18,4 @@ export const schema = new mongoose.Schema({
   },
 })
 
-export const Day = mongoose.model('Day', schema)
+export const Day = mongoose.model('Day', DaySchema)

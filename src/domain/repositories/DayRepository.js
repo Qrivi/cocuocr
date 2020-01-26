@@ -8,6 +8,14 @@ class DayRepository {
   create (object) {
     return this.model.create(object)
   }
+
+  findAll () {
+    return this.model.find()
+  }
+
+  find (day) {
+    return this.model.find(day)
+  }
 }
 
 export default new DayRepository(Day)

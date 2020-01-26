@@ -1,38 +1,40 @@
 import mongoose from 'mongoose'
-import { schema as Day } from './Day'
 
-export const schema = new mongoose.Schema({
-  data: {
-    week: {
-      type: Number,
-    },
-    year: {
-      type: Number,
-    },
-    image: {
-      type: String,
-    },
-    url: {
-      type: String,
-    },
-    fetched: {
-      type: Date,
-    },
+export const WeekSchema = new mongoose.Schema({
+  week: {
+    type: Number,
+  },
+  year: {
+    type: Number,
+  },
+  image: {
+    type: String,
+  },
+  url: {
+    type: String,
+  },
+  fetched: {
+    type: Date,
   },
   monday: {
-    type: Day,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Day',
   },
   tuesday: {
-    type: Day,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Day',
   },
   wednesday: {
-    type: Day,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Day',
   },
   thursday: {
-    type: Day,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Day',
   },
   friday: {
-    type: Day,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Day',
   },
   recurring: {
     tomatoSoup: {
@@ -47,4 +49,4 @@ export const schema = new mongoose.Schema({
   },
 })
 
-export const Week = mongoose.model('Week', schema)
+export const Week = mongoose.model('Week', WeekSchema)
