@@ -4,7 +4,7 @@ import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
 import { CronJob } from 'cron'
 
-import MenuService from './services/MenuService'
+import ScrapeService from './services/ScrapeService'
 import menuRoute from './routes/MenuRoute'
 import Logger from './utils/Logger'
 import Constants from './constants'
@@ -37,7 +37,7 @@ mongoose.connect(mongo, { useNewUrlParser: true, useUnifiedTopology: true })
   })
 
 try {
-  new CronJob(schedule, MenuService.fetchMenuPersistently).start()
+  new CronJob(schedule, ScrapeService.fetchMenuPersistently).start()
   Logger.log('app', `Menu fetch crontab scheduled to run every ${schedule}`)
 } catch (error) {
   Logger.error('app', `Failed to start cron scheduler (${error})`)
