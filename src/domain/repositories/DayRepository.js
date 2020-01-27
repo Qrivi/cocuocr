@@ -13,8 +13,8 @@ class DayRepository {
     return this.model.find()
   }
 
-  find (day) {
-    return this.model.find(day)
+  findOne (day) {
+    return this.model.findOne(day)
   }
 }
 

@@ -13,12 +13,12 @@ class WeekRepository {
     return this.model.find()
   }
 
-  find (week) {
-    return this.model.find(week)
+  findOne (week) {
+    return this.model.findOne(week)
   }
 
-  findWithDays (week) {
-    return this.model.findById(week)
+  findOneWithDays (week) {
+    return this.model.find(week)
       .populate('monday')
       .populate('tuesday')
       .populate('wednesday')

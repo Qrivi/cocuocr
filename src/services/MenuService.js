@@ -2,8 +2,40 @@ import dayRepository from '../domain/repositories/DayRepository'
 import weekRepository from '../domain/repositories/WeekRepository'
 
 import Logger from '../utils/Logger'
+import moment from 'moment'
 
 export default class MenuService {
+  static async getDay (year, month, day) {
+    try {
+      Logger.log('MenuService', `Retrieving data for day ${year}/${month}/${day}…`)
+      const date = moment().year(year).month(month - 1).date(day).hour(8).minutes(0).seconds(0).milliseconds(0)
+      return dayRepository.findOne({ date })
+    } catch (error) {
+      Logger.error('MenuService', error)
+      throw new Error('Failed to retrieve documents to the database!')
+    }
+  }
+
+  static async getToday () {
+    const now = moment()
+    return this.getDay(now.year(), now.month() + 1, now.day())
+  }
+
+  static async getWeek (year, week) {
+    try {
+      Logger.log('MenuService', `Retrieving data for week ${year}/${week}…`)
+      return weekRepository.findOneWithDays({ year, week })
+    } catch (error) {
+      Logger.error('MenuService', error)
+      throw new Error('Failed to retrieve documents to the database!')
+    }
+  }
+
+  static async getThisWeek () {
+    const now = moment()
+    return this.getWeek(now.year(), now.isoWeek())
+  }
+
   static async insertWeek (menuData) {
     Logger.log('MenuService', `Adding menu data for week ${menuData.week.year}/${menuData.week.week} to the database…`)
     try {
@@ -32,6 +64,6 @@ export default class MenuService {
   }
 
   static async exists (menuUrl) {
-    return !!await weekRepository.find({ url: menuUrl })
+    return !!await weekRepository.findOne({ url: menuUrl })
   }
 }

@@ -69,23 +69,23 @@ export default class ScrapeService {
         },
         monday: {
           ...results[1],
-          date: moment(results[1].date, 'D/MMM').add(8, 'hours'),
+          date: moment(results[1].date, 'D/MMM').hour(8),
         },
         tuesday: {
           ...results[2],
-          date: moment(results[2].date, 'D/MMM').add(8, 'hours'),
+          date: moment(results[2].date, 'D/MMM').hour(8),
         },
         wednesday: {
           ...results[3],
-          date: moment(results[3].date, 'D/MMM').add(8, 'hours'),
+          date: moment(results[3].date, 'D/MMM').hour(8),
         },
         thursday: {
           ...results[4],
-          date: moment(results[4].date, 'D/MMM').add(8, 'hours'),
+          date: moment(results[4].date, 'D/MMM').hour(8),
         },
         friday: {
           ...results[5],
-          date: moment(results[5].date, 'D/MMM').add(8, 'hours'),
+          date: moment(results[5].date, 'D/MMM').hour(8),
         },
       }
 
