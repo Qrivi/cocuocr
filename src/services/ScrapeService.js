@@ -31,21 +31,21 @@ export default class ScrapeService {
     Logger.log('ScrapeService', 'Attempting to update the database with this week\'s menu data…')
 
     const weekNumber = moment().isoWeek()
-    const menuUrl = await this.fetchCurrentMenuImageUrl()
+    const menuUrl = await ScrapeService.fetchCurrentMenuImageUrl()
     if (!menuUrl.includes(`${weekNumber}-scaled`)) {
       const timeout = process.env.FETCH_TIMEOUT || Constants.DEFAULT_FETCH_TIMEOUT
       Logger.warning('ScrapeService', `Website doesn't have the menu for this week — rechecking in ${timeout / 60} minutes`)
       await Tools.sleep(timeout)
-      return this.fetchMenuPersistently()
+      return ScrapeService.fetchMenuPersistently()
     }
 
-    if (MenuService.exists(menuUrl)) {
+    if (await MenuService.exists(menuUrl)) {
       Logger.warning('ScrapeService', 'It appears data from this week\'s menu was already processed before — aborting')
       return false
     }
 
     try {
-      const menuBuffer = await this.fetchAsBuffer(menuUrl)
+      const menuBuffer = await ScrapeService.fetchAsBuffer(menuUrl)
       await ocrService.init(menuBuffer)
       const results = (await Promise.all([
         ocrService.read(Constants.RECURRING_DATA),

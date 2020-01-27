@@ -7,18 +7,18 @@ export default class Logger {
   }
 
   static async log (tag, message, keepOpen) {
-    return process.stdout.write(`${this.timestamp()}  [${tag}] ${message}${keepOpen ? ' ' : '\n'}`)
+    return process.stdout.write(`${Logger.timestamp()}  [${tag}] ${message}${keepOpen ? ' ' : '\n'}`)
   }
 
   static async warning (tag, message, keepOpen) {
-    return process.stdout.write(chalk.yellow(`${this.timestamp()}  [${tag}] ${message}${keepOpen ? ' ' : '\n'}`))
+    return process.stdout.write(chalk.yellow(`${Logger.timestamp()}  [${tag}] ${message}${keepOpen ? ' ' : '\n'}`))
   }
 
   static async error (tag, message, keepOpen) {
-    return process.stdout.write(chalk.red(`${this.timestamp()}  [${tag}] ${message}${keepOpen ? ' ' : '\n'}`))
+    return process.stdout.write(chalk.red(`${Logger.timestamp()}  [${tag}] ${message}${keepOpen ? ' ' : '\n'}`))
   }
 
   static async success (tag, message, keepOpen) {
-    return process.stdout.write(chalk.green(`${this.timestamp()}  [${tag}] ${message}${keepOpen ? ' ' : '\n'}`))
+    return process.stdout.write(chalk.green(`${Logger.timestamp()}  [${tag}] ${message}${keepOpen ? ' ' : '\n'}`))
   }
 }
