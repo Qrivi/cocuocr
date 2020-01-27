@@ -5,7 +5,7 @@ import Logger from '../utils/Logger'
 
 export default class MenuService {
   static async addNewWeek (menuData) {
-    Logger.log('MenuService', `Silently adding menu data for week ${menuData.week.weekNumber} to the database…`)
+    Logger.log('MenuService', `Silently adding menu data for week ${menuData.week.week} to the database…`)
     // Add all the data to the database
     const documents = await Promise.all([
       weekRepository.create(menuData.week),

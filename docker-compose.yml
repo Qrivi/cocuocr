@@ -4,6 +4,8 @@ services:
   cocudb:
     container_name: cocudb
     image: 'mongo:4.2.2'
+    volumes:
+      - './data/db:/data/db'
     ports:
       - '27017:27017'
     command: 'mongod'
