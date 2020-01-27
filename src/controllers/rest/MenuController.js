@@ -1,7 +1,21 @@
 import MenuService from '../../services/MenuService'
 import JsonResponse from './JsonResponse'
+import ImageResponse from './ImageResponse'
 
 export default class MenuController {
+  static async getMenuImage (req, res) {
+    const r = new ImageResponse()
+    try {
+      const year = parseInt(req.query.year)
+      const week = parseInt(req.query.week)
+      const data = year && week ? await MenuService.getWeek(year, week) : await MenuService.getThisWeek()
+      if (data) { return r.sendImage(res, 200, data.image) }
+      return r.notFound(res, `Image for week ${year}/${week}`)
+    } catch (error) {
+      return r.badRequest(res, `${error.name}: ${error.message}`)
+    }
+  }
+
   static async getWeek (req, res) {
     const r = new JsonResponse()
     try {

@@ -18,7 +18,7 @@ class WeekRepository {
   }
 
   findOneWithDays (week) {
-    return this.model.find(week)
+    return this.model.findOne(week)
       .populate('monday')
       .populate('tuesday')
       .populate('wednesday')
