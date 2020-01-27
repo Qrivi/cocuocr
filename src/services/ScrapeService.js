@@ -39,50 +39,59 @@ export default class ScrapeService {
       return this.fetchMenuPersistently()
     }
 
-    const menuBuffer = await this.fetchAsBuffer(menuUrl)
-    await ocrService.init(menuBuffer)
-    const results = (await Promise.all([
-      ocrService.read(Constants.RECURRING_DATA),
-      ocrService.read(Constants.MONDAY_DATA),
-      ocrService.read(Constants.TUESDAY_DATA),
-      ocrService.read(Constants.WEDNESDAY_DATA),
-      ocrService.read(Constants.THURSDAY_DATA),
-      ocrService.read(Constants.FRIDAY_DATA),
-    ])).map(result => Tools.flatten(result))
-    await ocrService.kill()
-
-    moment.locale('nl')
-    const thisWeek = {
-      week: {
-        week: weekNumber,
-        year: moment().year(),
-        image: menuBuffer.toString('base64'),
-        url: menuUrl,
-        fetched: moment(),
-        recurring: results[0],
-      },
-      monday: {
-        ...results[1],
-        date: moment(results[1].date, 'D/MMM').add(8, 'hours'),
-      },
-      tuesday: {
-        ...results[2],
-        date: moment(results[2].date, 'D/MMM').add(8, 'hours'),
-      },
-      wednesday: {
-        ...results[3],
-        date: moment(results[3].date, 'D/MMM').add(8, 'hours'),
-      },
-      thursday: {
-        ...results[4],
-        date: moment(results[4].date, 'D/MMM').add(8, 'hours'),
-      },
-      friday: {
-        ...results[5],
-        date: moment(results[5].date, 'D/MMM').add(8, 'hours'),
-      },
+    if (MenuService.exists(menuUrl)) {
+      Logger.warning('ScrapeService', 'It appears data from this week\'s menu was already processed before — aborting')
+      return false
     }
 
-    return MenuService.addNewWeek(thisWeek)
+    try {
+      const menuBuffer = await this.fetchAsBuffer(menuUrl)
+      await ocrService.init(menuBuffer)
+      const results = (await Promise.all([
+        ocrService.read(Constants.RECURRING_DATA),
+        ocrService.read(Constants.MONDAY_DATA),
+        ocrService.read(Constants.TUESDAY_DATA),
+        ocrService.read(Constants.WEDNESDAY_DATA),
+        ocrService.read(Constants.THURSDAY_DATA),
+        ocrService.read(Constants.FRIDAY_DATA),
+      ])).map(result => Tools.flatten(result))
+      await ocrService.kill()
+
+      moment.locale('nl')
+      const thisWeek = {
+        week: {
+          week: weekNumber,
+          year: moment().year(),
+          image: menuBuffer.toString('base64'),
+          url: menuUrl,
+          fetched: moment(),
+          recurring: results[0],
+        },
+        monday: {
+          ...results[1],
+          date: moment(results[1].date, 'D/MMM').add(8, 'hours'),
+        },
+        tuesday: {
+          ...results[2],
+          date: moment(results[2].date, 'D/MMM').add(8, 'hours'),
+        },
+        wednesday: {
+          ...results[3],
+          date: moment(results[3].date, 'D/MMM').add(8, 'hours'),
+        },
+        thursday: {
+          ...results[4],
+          date: moment(results[4].date, 'D/MMM').add(8, 'hours'),
+        },
+        friday: {
+          ...results[5],
+          date: moment(results[5].date, 'D/MMM').add(8, 'hours'),
+        },
+      }
+
+      return MenuService.insertWeek(thisWeek)
+    } catch (error) {
+      // Failing cron job silently. 🤫
+    }
   }
 }

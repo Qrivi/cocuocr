@@ -12,6 +12,7 @@ export const WeekSchema = new mongoose.Schema({
   },
   url: {
     type: String,
+    unique: true,
   },
   fetched: {
     type: Date,

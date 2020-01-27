@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 export const DaySchema = new mongoose.Schema({
   date: {
     type: Date,
+    unique: true,
   },
   soup: {
     type: String,

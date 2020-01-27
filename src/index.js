@@ -25,7 +25,11 @@ app.get('*', (req, res) => res.status(200).send({
   message: 'Howdy? 🤠',
 }))
 
-mongoose.connect(mongo, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(mongo, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+})
   .then(() => {
     Logger.log('app', `Connected to MongoDB at ${mongo}`)
     app.listen(port, () => {
