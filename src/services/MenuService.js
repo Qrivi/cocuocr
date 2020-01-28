@@ -18,7 +18,7 @@ export default class MenuService {
 
   static async getToday () {
     const now = moment()
-    return MenuService.getDay(now.year(), now.month() + 1, now.day())
+    return MenuService.getDay(now.year(), now.month() + 1, now.date())
   }
 
   static async getWeek (year, week) {
