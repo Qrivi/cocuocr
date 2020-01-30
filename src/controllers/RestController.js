@@ -1,8 +1,8 @@
-import MenuService from '../../services/MenuService'
-import JsonResponse from './JsonResponse'
-import ImageResponse from './ImageResponse'
+import MenuService from '../services/MenuService'
+import JsonResponse from '../responseformats/JsonResponse'
+import ImageResponse from '../responseformats/ImageResponse'
 
-export default class MenuController {
+export default class RestController {
   static async getMenuImage (req, res) {
     const r = new ImageResponse()
     try {

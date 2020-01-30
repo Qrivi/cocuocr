@@ -5,7 +5,8 @@ import bodyParser from 'body-parser'
 import { CronJob } from 'cron'
 
 import ScrapeService from './services/ScrapeService'
-import menuRoute from './routes/MenuRoute'
+import restRoute from './routes/RestRoute'
+import slackRoute from './routes/SlackRoute'
 import Logger from './utils/Logger'
 import Constants from './constants'
 
@@ -19,7 +20,8 @@ const schedule = process.env.FETCH_SCHEDULE || Constants.DEFAULT_FETCH_SCHEDULE
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
-app.use('/rest/menu', menuRoute)
+app.use('/menu/rest', restRoute)
+app.use('/menu/slack', slackRoute)
 
 app.get('*', (req, res) => res.status(200).send({
   message: 'Howdy? 🤠',
