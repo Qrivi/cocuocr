@@ -10,6 +10,7 @@ export default class RestController {
       const week = parseInt(req.query.week)
       const data = year && week ? await MenuService.getWeek(year, week) : await MenuService.getThisWeek()
       if (data) { return r.sendImage(res, 200, data.image) }
+      if (isNaN(year) || isNaN(week)) { return r.notFound(res, 'Image for current week') }
       return r.notFound(res, `Image for week ${year}/${week}`)
     } catch (error) {
       return r.badRequest(res, `${error.name}: ${error.message}`)
@@ -23,6 +24,7 @@ export default class RestController {
       const week = parseInt(req.query.week)
       const data = year && week ? await MenuService.getWeek(year, week) : await MenuService.getThisWeek()
       if (data) { return r.send(res, 200, { data }) }
+      if (isNaN(year) || isNaN(week)) { return r.notFound(res, 'Data for current week') }
       return r.notFound(res, `Data for week ${year}/${week}`)
     } catch (error) {
       return r.badRequest(res, `${error.name}: ${error.message}`)
@@ -37,6 +39,7 @@ export default class RestController {
       const day = parseInt(req.query.day)
       const data = year && month && day ? await MenuService.getDay(year, month, day) : await MenuService.getToday()
       if (data) { return r.send(res, 200, { data }) }
+      if (isNaN(year) || isNaN(month) || isNaN(day)) { return r.notFound(res, 'Data for current today') }
       return r.notFound(res, `Data for day ${year}/${month}/${day}`)
     } catch (error) {
       return r.badRequest(res, `${error.name}: ${error.message}`)
