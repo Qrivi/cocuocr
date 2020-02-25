@@ -17,6 +17,10 @@ export default class Constants {
     return 30 * 60 // In seconds how long to wait before rechecking if the latest menu has been put online.
   }
 
+  static get DEFAULT_BEARER () {
+    return 'c0cu0cr' // Bearer "token" to pass to authorization requiring endpoints.
+  }
+
   static get DEFAULT_TESSERACT_WORKERS () {
     return 5 // Amount of Tesseract.js process an image. More is faster (but also heavier? 5 seems to be the sweet spot).
   }

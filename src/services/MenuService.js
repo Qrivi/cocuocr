@@ -12,7 +12,7 @@ export default class MenuService {
       return dayRepository.findOne({ date })
     } catch (error) {
       Logger.error('MenuService', error)
-      throw new Error('Failed to retrieve documents to the database!')
+      throw new Error('Failed to retrieve documents from the database!')
     }
   }
 
@@ -27,13 +27,23 @@ export default class MenuService {
       return weekRepository.findOneWithDays({ year, week })
     } catch (error) {
       Logger.error('MenuService', error)
-      throw new Error('Failed to retrieve documents to the database!')
+      throw new Error('Failed to retrieve documents from the database!')
     }
   }
 
   static async getThisWeek () {
     const now = moment()
     return MenuService.getWeek(now.year(), now.isoWeek())
+  }
+
+  static async getAllWeeks () {
+    try {
+      Logger.log('MenuService', 'Retrieving data for all weeks…')
+      return weekRepository.findAll()
+    } catch (error) {
+      Logger.error('MenuService', error)
+      throw new Error('Failed to retrieve documents from the database!')
+    }
   }
 
   static async insertWeek (menuData) {
