@@ -1,49 +1,59 @@
 export default class SlackResponse {
   constructor (moment) {
-    this.moment = moment
     this.soups = []
     this.dishes = []
-    this.days = {
-      type: 'static_select',
-      placeholder: {
-        type: 'plain_text',
-        text: `Menu van *${moment.format('dddd D MMMM YYYY')}*`,
-      },
-      options: [
+    this.body = {
+      blocks: [
         {
+          type: 'section',
           text: {
-            type: 'plain_text',
-            text: 'Maandag',
+            type: 'mrkdwn',
+            text: `Menu van *${moment.format('dddd D MMMM YYYY')}*`,
           },
-          value: 'monday',
-        },
-        {
-          text: {
-            type: 'plain_text',
-            text: 'Dinsdag',
+          accessory: {
+            type: 'static_select',
+            placeholder: {
+              type: 'plain_text',
+              text: `Week ${moment.format('W')}`,
+            },
+            options: [
+              {
+                text: {
+                  type: 'plain_text',
+                  text: 'Maandag',
+                },
+                value: 'monday',
+              },
+              {
+                text: {
+                  type: 'plain_text',
+                  text: 'Dinsdag',
+                },
+                value: 'tuesday',
+              },
+              {
+                text: {
+                  type: 'plain_text',
+                  text: 'Woensdag',
+                },
+                value: 'wednesday',
+              },
+              {
+                text: {
+                  type: 'plain_text',
+                  text: 'Donderdag',
+                },
+                value: 'thursday',
+              },
+              {
+                text: {
+                  type: 'plain_text',
+                  text: 'Vrijdag',
+                },
+                value: 'friday',
+              },
+            ],
           },
-          value: 'tuesday',
-        },
-        {
-          text: {
-            type: 'plain_text',
-            text: 'Woensdag',
-          },
-          value: 'wednesday',
-        },
-        {
-          text: {
-            type: 'plain_text',
-            text: 'Donderdag',
-          },
-          value: 'thursday',
-        },
-        {
-          text: {
-            type: 'plain_text',
-            text: 'Vrijdag',
-          },
-          value: 'friday',
         },
       ],
     }
@@ -60,18 +70,6 @@ export default class SlackResponse {
     this.dishes.push({
       type: 'mrkdwn',
       text: `*${kind}*\n>${dish}`,
-    })
-  }
-
-  badRequest (res, message) {
-    return this.send(res, 500, {
-      error: message || 'Something was not properly programmed and broke.',
-    })
-  }
-
-  notFound (res, subject) {
-    return this.send(res, 404, {
-      error: `${subject || 'The requested object'} does not exist.`,
     })
   }
 
