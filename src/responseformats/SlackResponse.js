@@ -6,6 +6,7 @@ export default class SlackResponse {
     this.soups = []
     this.dishes = []
     this.body = {
+      response_type: 'in_channel',
       blocks: [
         {
           type: 'section',
@@ -25,35 +26,35 @@ export default class SlackResponse {
                   type: 'plain_text',
                   text: 'Maandag',
                 },
-                value: 'monday',
+                value: moment.startOf('isoWeek').format('DD-MM-YYYY'),
               },
               {
                 text: {
                   type: 'plain_text',
                   text: 'Dinsdag',
                 },
-                value: 'tuesday',
+                value: moment.startOf('isoWeek').add(1, 'day').format('DD-MM-YYYY'),
               },
               {
                 text: {
                   type: 'plain_text',
                   text: 'Woensdag',
                 },
-                value: 'wednesday',
+                value: moment.startOf('isoWeek').add(2, 'day').format('DD-MM-YYYY'),
               },
               {
                 text: {
                   type: 'plain_text',
                   text: 'Donderdag',
                 },
-                value: 'thursday',
+                value: moment.startOf('isoWeek').add(3, 'day').format('DD-MM-YYYY'),
               },
               {
                 text: {
                   type: 'plain_text',
                   text: 'Vrijdag',
                 },
-                value: 'friday',
+                value: moment.startOf('isoWeek').add(4, 'day').format('DD-MM-YYYY'),
               },
             ],
           },
