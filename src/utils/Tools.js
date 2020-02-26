@@ -25,4 +25,19 @@ export default class Tools {
   static sleep (s) {
     return new Promise(resolve => setTimeout(resolve, s * 1000))
   }
+
+  static parseDate (text, fallbackYear) {
+    try {
+      const parts = text.split(/[/-]/)
+      const day = parseInt(parts[0])
+      if (day < 0 || day > 31) throw new Error()
+      const month = parseInt(parts[1])
+      if (month < 0 || month > 12) throw new Error()
+      const year = parts[2] ? parseInt(parts[2]) : fallbackYear
+      if (year < 0) throw new Error()
+      return `${String(year).padStart(4, '200')}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`
+    } catch (err) {
+      throw new Error('Could not parse date!')
+    }
+  }
 }

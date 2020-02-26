@@ -1,3 +1,6 @@
+import Axios from 'axios'
+import Logger from '../utils/Logger'
+
 export default class SlackResponse {
   constructor (moment) {
     this.soups = []
@@ -8,7 +11,7 @@ export default class SlackResponse {
           type: 'section',
           text: {
             type: 'mrkdwn',
-            text: `Menu van *${moment.format('dddd D MMMM YYYY')}*`,
+            text: `Menu van *${moment.locale('nl').format('dddd D MMMM YYYY')}*`,
           },
           accessory: {
             type: 'static_select',
@@ -73,12 +76,52 @@ export default class SlackResponse {
     })
   }
 
-  send (res, statusCode, data) {
-    return res.status(statusCode)
-      .json({
-        statusCode,
-        executionTimeInMs: new Date().getTime() - this.creationDate.getTime(),
-        ...data,
+  render () {
+    if (this.soups.length) {
+      this.body.blocks.push({
+        type: 'context',
+        elements: [
+          {
+            type: 'plain_text',
+            text: 'Soepjes',
+          },
+        ],
+      })
+      this.body.blocks.push({
+        type: 'section',
+        fields: this.soups,
+      })
+      this.body.blocks.push({
+        type: 'divider',
+      })
+    }
+    if (this.dishes.length) {
+      this.body.blocks.push({
+        type: 'context',
+        elements: [
+          {
+            type: 'plain_text',
+            text: 'Schotels',
+          },
+        ],
+      })
+      this.body.blocks.push({
+        type: 'section',
+        fields: this.dishes,
+      })
+      this.body.blocks.push({
+        type: 'divider',
+      })
+    }
+  }
+
+  send (url) {
+    Axios.post(url, this.body)
+      .then(() => {
+        Logger.success('SlackResponse', 'Response to Slack was sent successfully!')
+      })
+      .catch(() => {
+        Logger.error('SlackResponse', 'Response to Slack returned an error!')
       })
   }
 }

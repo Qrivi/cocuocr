@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --exec babel-node ./src/index.js",
-    "tunnel": "lt -h https://tunnel.datahub.at --local-https false --subdomain cocuocr --port 8080",
+    "tunnel": "lt -h http://serverless.social --local-https false --subdomain cocuocr --port 8080",
     "test": "echo \"Error: ain't nobody got time for that\" && exit 1",
     "lint": "standardx 'src/**/*.js' 'test/**/*.js'",
     "clean": "rm -rf ./out ./*.traineddata",
