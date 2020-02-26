@@ -2,11 +2,11 @@ export default class Constants {
   // This file should not be edited (often): tweakable defaults can be set in a .env file.
 
   static get DEFAULT_PORT () {
-    return 8080
+    return 8050
   }
 
   static get DEFAULT_MONGO_URL () {
-    return 'mongodb://localhost:27017/cocudb'
+    return 'mongodb://cocudb:27017/cocudb'
   }
 
   static get DEFAULT_FETCH_SCHEDULE () {

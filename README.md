@@ -10,6 +10,11 @@ WIP 👨‍💻
 
 ### Run app for development:
 
+- Overwrite `MONGO_URL` in a .env file with your running MongoDB instance:
+```
+MONGO_URL=mongodb://localhost:27017/cocudb
+```
+
 - Set up a MongoDB with Docker (not required if MongoDB is installed locally):
 ```
 docker-compose run --service-ports cocudb
