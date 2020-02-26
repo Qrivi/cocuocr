@@ -3,6 +3,7 @@ data/db
 
 # Build directory
 out/
+.cache/
 
 # Tesseract.js
 *.traineddata

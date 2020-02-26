@@ -11,6 +11,7 @@ example.env
 
 # Build directory
 out/
+.cache/
 
 # Tesseract.js
 *.traineddata

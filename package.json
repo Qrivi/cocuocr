@@ -4,14 +4,16 @@
   "description": "OCR to read the Corda Cuisine menu",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --exec babel-node ./src/index.js",
+    "dev": "concurrently --kill-others \"npm run watch\" \"sleep 2s && npm run serve\"",
     "tunnel": "lt -h http://serverless.social --local-https false --subdomain cocuocr --port 8080",
     "test": "echo \"Error: ain't nobody got time for that\" && exit 1",
     "lint": "standardx 'src/**/*.js' 'test/**/*.js'",
     "clean": "rm -rf ./out ./*.traineddata",
-    "build": "babel -d ./out ./src -s",
+    "watch": "parcel watch ./src/index.js -d ./out  --target node",
+    "build": "parcel build ./src/index.js -d ./out  --target node",
     "docker:build": "docker build -t qrivi/cocuapi .",
-    "start": "npm run clean && npm run build && node ./out/index.js"
+    "start": "npm run clean && npm run build && node ./out/index.js",
+    "serve": "nodemon ./out/index.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +28,10 @@
     "url": "https://github.com/Qrivi/cocuocr/issues"
   },
   "homepage": "https://github.com/Qrivi/cocuocr#readme",
+  "engines": {
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
+  },
   "dependencies": {
     "axios": "^0.19.1",
     "body-parser": "^1.19.0",
@@ -39,18 +45,13 @@
     "tesseract.js": "^2.0.2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.3",
-    "@babel/core": "^7.8.3",
-    "@babel/node": "^7.8.3",
-    "@babel/plugin-transform-runtime": "^7.8.3",
-    "@babel/preset-env": "^7.8.3",
-    "@babel/register": "^7.8.3",
-    "@babel/runtime": "^7.8.3",
+    "babel-preset-env": "^1.7.0",
     "eslint": "^6.8.0",
     "eslint-plugin-import": "^2.20.0",
     "husky": "^4.0.10",
     "localtunnel": "^2.0.0",
     "nodemon": "^2.0.2",
+    "parcel-bundler": "^1.12.4",
     "standardx": "^5.0.0"
   },
   "husky": {
