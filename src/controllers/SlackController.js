@@ -14,7 +14,6 @@ export default class SlackController {
         url = body.response_url
         break
       default:
-        if (!body) { return res.status(200).send('I was unable to parse that date. 😞') }
         input = body.text
         url = body.response_url
         break
@@ -30,9 +29,14 @@ export default class SlackController {
   }
 
   static async createResponse (date, url) {
-    const data = await MenuService.getWeek(date.year(), date.isoWeek())
-    const menu = data[date.format('dddd').toLowerCase()]
     const s = new SlackResponse(date)
+    const data = await MenuService.getWeek(date.year(), date.isoWeek())
+    if (!data || !data.length) {
+      s.send(url, true)
+      return
+    }
+
+    const menu = data[date.format('dddd').toLowerCase()]
 
     s.addSoup('Soep van de dag', menu.soup)
     s.addSoup('Tomatensoep', data.recurring.tomatoSoup)

@@ -116,7 +116,9 @@ export default class SlackResponse {
     }
   }
 
-  send (url) {
+  send(url, empty) {
+    if (empty) this.body = { text: 'Sorry, I have no data for that day. 😔' }
+    
     Axios.post(url, this.body)
       .then(() => {
         Logger.success('SlackResponse', 'Response to Slack was sent successfully!')
